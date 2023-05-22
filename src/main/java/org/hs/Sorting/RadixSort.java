@@ -25,7 +25,7 @@ public class RadixSort implements Sort{
 
         if(this.ogMin < 0)
             for(int i = 0; i < list.length; i++)
-                list[i] += this.ogMin;
+                list[i] -= this.ogMin;
 
 
         for (int i = 0; i < 10; i++)
@@ -37,10 +37,11 @@ public class RadixSort implements Sort{
     @Override
     public ArrayList<int[]> incremental_sort(){
         int[] sortedList;
-        ArrayList<int[]> intermediateLists = new ArrayList<>(maxElement_numOfDigits);
+        ArrayList<int[]> intermediateLists = new ArrayList<>(maxElement_numOfDigits + 1);
+        intermediateLists.add(this.list);
         for(int i = 0; i < maxElement_numOfDigits; i++){
             sortedList = new int[this.list.length];
-            for (int element : list)
+            for (int element : intermediateLists.get(intermediateLists.size() - 1))
                 buckets[(element / (int)Math.pow(10, i)) % 10].add(element);
 
             int idx = 0;
@@ -48,20 +49,36 @@ public class RadixSort implements Sort{
                 while (!bucket.isEmpty())   sortedList[idx++] = bucket.poll();
             intermediateLists.add(sortedList);
         }
+        intermediateLists.forEach((lst) -> {
+            for (int j = 0; j < lst.length; j++)
+                lst[j] += this.ogMin;
+        });
         return intermediateLists;
     }
 
     @Override
     public int[] final_sort() {
-        int[] sortedList = new int[this.list.length];
+        int[] sortedList = this.list.clone();
         for(int i = 0; i < maxElement_numOfDigits; i++){
-            for (int element : list)
+            for (int element : sortedList)
                 buckets[(element / (int)Math.pow(10, i)) % 10].add(element);
 
             int idx = 0;
             for (Queue<Integer> bucket : buckets)
                 while (!bucket.isEmpty())   sortedList[idx++] = bucket.poll();
         }
+        for(int i = 0; i < sortedList.length; i++)
+            sortedList[i] += this.ogMin;
         return sortedList;
+    }
+
+    public static void main(String[] args){
+        Sort s = new RadixSort(new int[]{-5,-1000,5,9,-8,2,-3,4,5,10,54,-7,3});
+        for(int[] lst : s.incremental_sort()){
+            for(int i : lst)
+                System.out.print(i + " ");
+            System.out.println();
+        }
+
     }
 }
