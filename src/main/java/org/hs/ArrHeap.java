@@ -1,3 +1,5 @@
+package org.hs;
+
 public class ArrHeap {
     int[] arr;
     int size;

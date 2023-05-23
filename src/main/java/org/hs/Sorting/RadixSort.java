@@ -11,7 +11,8 @@ public class RadixSort implements Sort{
     private final int[] list;
     private Queue<Integer>[] buckets = new Queue[10];
 
-    public RadixSort(int[] list){
+    public RadixSort(int[] array){
+        this.list = array.clone();
         int maxIdx = 0, minIdx = 0;
 
         for(int i = 0; i < list.length; i++){
@@ -32,7 +33,6 @@ public class RadixSort implements Sort{
             this.buckets[i] = new LinkedList<>();
 
         while(list[maxIdx] > (int)Math.pow(10, maxElement_numOfDigits)) maxElement_numOfDigits++;
-        this.list = list;
     }
     @Override
     public ArrayList<int[]> incremental_sort(){

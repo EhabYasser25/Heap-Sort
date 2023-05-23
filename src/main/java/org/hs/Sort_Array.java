@@ -1,26 +1,41 @@
 package org.hs;
 
+import org.hs.Sorting.BubbleSort;
+import org.hs.Sorting.MergeSort;
 import org.hs.Sorting.RadixSort;
 import org.hs.Sorting.Sort;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Sort_Array {
 
     /**
      * The list of elements read from the CSV file during construction.
      */
-    private int[] elements;
+    private final int[] elements;
 
     private Sort simple, efficient, nonComparative;
 
     /**
      * Takes an input file structured containing the list of elements
      * comma separated, reads it, and initializes the array.
-     * @param file_path the path to the file from which to read the array.
+     * @param path the path to the file from which to read the array.
      */
-    public Sort_Array(String file_path){
-
+    public Sort_Array(String path) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        String line = br.readLine();
+        String[] numStrings = line.split(",");
+        elements = new int[numStrings.length];
+        for(int i=0 ; i<elements.length ; i++)
+            elements[i] = Integer.parseInt(numStrings[i]);
+        simple = new BubbleSort(elements);
+        efficient = new MergeSort(elements);
+        nonComparative = new RadixSort(elements);
     }
 
     /**
@@ -92,5 +107,15 @@ public class Sort_Array {
             results.add(this.nonComparative.final_sort());
         }
         return results;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Sort_Array sort = new Sort_Array("src/main/java/org/hs/test.txt");
+        System.out.println("\nSorting without steps: ");
+        System.out.println(Arrays.toString(sort.nonComparison_sort(OutputFormat.FINAL).get(0)));
+        System.out.println("\nSorting with steps: ");
+        for(int[] lst : sort.nonComparison_sort(OutputFormat.INTERMEDIATE)){
+            System.out.println(Arrays.toString(lst));
+        }
     }
 }
