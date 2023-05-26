@@ -53,14 +53,4 @@ public class MergeSort implements Sort{
         mergeSort(0, sortedList.length-1, false);
         return sortedList;
     }
-
-    public static void main(String[] args){
-        Sort s = new MergeSort(new int[]{-5,-1000,5,9,-8,2,-3,4,5,10,54,-7,3});
-        System.out.println("\nSorting without steps: ");
-        System.out.println(Arrays.toString(s.final_sort()));
-        System.out.println("\nSorting with steps: ");
-        for(int[] lst : s.incremental_sort()){
-            System.out.println(Arrays.toString(lst));
-        }
-    }
 }

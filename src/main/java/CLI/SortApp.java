@@ -61,7 +61,7 @@ public class SortApp {
                 }
             } while (setFormat(option) != 0);
             long time = execute();
-            System.out.println("Time in microseconds: " + time / 1000);
+            System.out.println("Time in microseconds: " + time / 1000 + "\n\n");
         }
     }
 
