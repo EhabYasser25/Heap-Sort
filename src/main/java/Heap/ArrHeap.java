@@ -3,10 +3,10 @@ package Heap;
 import java.util.ArrayList;
 
 public class ArrHeap {
-    public int[] arr;
+    int[] arr;
     int size;
     int maxSize ;
-    public ArrayList<int[]> steps;
+    ArrayList<int[]> steps;
 
     public ArrHeap(int MaxSize){
         arr = new int[MaxSize];

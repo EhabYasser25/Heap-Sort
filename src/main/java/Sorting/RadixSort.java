@@ -37,7 +37,7 @@ public class RadixSort implements Sort{
     public ArrayList<int[]> incremental_sort(){
         int[] sortedList;
         ArrayList<int[]> intermediateLists = new ArrayList<>(maxElement_numOfDigits + 1);
-        intermediateLists.add(this.list);
+        intermediateLists.add(this.list.clone());
         for(int i = 0; i < maxElement_numOfDigits; i++){
             sortedList = new int[this.list.length];
             for (int element : intermediateLists.get(intermediateLists.size() - 1))
