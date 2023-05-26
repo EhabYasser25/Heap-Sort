@@ -1,3 +1,5 @@
+package org.hs;
+
 import java.util.Collections;
 import java.util.PriorityQueue;
 
