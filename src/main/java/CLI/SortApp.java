@@ -30,21 +30,22 @@ public class SortApp {
                 System.out.println("File not found!");
             }
         }
-        System.out.println("Please select an algorithm:");
-        System.out.println("1. Bubble Sort");
-        System.out.println("2. Merge Sort");
-        System.out.println("3. Radix Sort");
-        System.out.println("4. Heap Sort");
-        System.out.println("0. Exit");
+        System.out.println("\n\n");
         programLoop();
     }
 
     public void programLoop() {
-        int option;
-        while(true) {
+        int option = -1;
+        while(option != 0) {
+            System.out.println("Please select an algorithm:");
+            System.out.println("1. Bubble Sort");
+            System.out.println("2. Merge Sort");
+            System.out.println("3. Radix Sort");
+            System.out.println("4. Heap Sort");
+            System.out.println("0. Exit");
             System.out.print("> ");
             try {
-                option = sc.nextInt();
+                option = Integer.parseInt(sc.nextLine());
             } catch (Exception e) {
                 option = -1;
             }
@@ -55,7 +56,7 @@ public class SortApp {
                 System.out.println("2. Intermediate Arrays");
                 System.out.print("> ");
                 try {
-                    option = sc.nextInt();
+                    option = Integer.parseInt(sc.nextLine());
                 } catch (Exception e) {
                     option = -1;
                 }
