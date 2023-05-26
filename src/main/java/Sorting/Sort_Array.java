@@ -29,6 +29,9 @@ public class Sort_Array {
         elements = new int[numStrings.length];
         for(int i=0 ; i<elements.length ; i++)
             elements[i] = Integer.parseInt(numStrings[i]);
+        simple = new BubbleSort(elements);
+        efficient = new MergeSort(elements);
+        nonComparative = new RadixSort(elements);
     }
 
     /**
@@ -40,7 +43,6 @@ public class Sort_Array {
      * The array would be of length one in case the OutputFormat chosen was FINAL
      */
     public ArrayList<int[]> simple_sort(OutputFormat format){
-        simple = new BubbleSort(elements);
         ArrayList<int[]> results;
         if(format == OutputFormat.INTERMEDIATE)
             results = this.simple.incremental_sort();
@@ -60,7 +62,6 @@ public class Sort_Array {
      * The array would be of length one in case the OutputFormat chosen was FINAL
      */
     public ArrayList<int[]> efficient_sort(OutputFormat format){
-        efficient = new MergeSort(elements);
         ArrayList<int[]> results;
         if(format == OutputFormat.INTERMEDIATE)
             results = this.efficient.incremental_sort();
@@ -80,7 +81,6 @@ public class Sort_Array {
      * The array would be of length one in case the OutputFormat chosen was FINAL
      */
     public ArrayList<int[]> nonComparison_sort(OutputFormat format){
-        nonComparative = new RadixSort(elements);
         ArrayList<int[]> results;
         if(format == OutputFormat.INTERMEDIATE)
             results = this.nonComparative.incremental_sort();

@@ -1,12 +1,16 @@
 package Heap;
 
+import java.util.ArrayList;
+
 public class ArrHeap {
     int[] arr;
     int size;
     int maxSize ;
+    ArrayList<int[]> steps;
 
     public ArrHeap(int MaxSize){
         arr = new int[MaxSize];
+        steps = new ArrayList<>();
         maxSize = MaxSize;
         size = 0;
     }
@@ -40,9 +44,11 @@ public class ArrHeap {
         size = inputArray.length;
         System.out.println(size);
         arr = inputArray;
+        steps.add(arr.clone());
         for(int i =size/2 -1 ; i >= 0 ; i--){
             System.out.println(i);
             maxHeapify(i,size);
+            steps.add(arr.clone());
         }
     }
     public void heapSort(int[] inputArray){
@@ -51,6 +57,7 @@ public class ArrHeap {
             System.out.println("here "+ i);
             swap(0, i);
             maxHeapify(0 ,i);
+            steps.add(arr.clone());
         }
     }
     public void insert(int element){
