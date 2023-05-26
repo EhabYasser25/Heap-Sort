@@ -58,13 +58,15 @@ public class RadixSort implements Sort{
     @Override
     public int[] final_sort() {
         int[] sortedList = this.list.clone();
+        int den = 1;
         for(int i = 0; i < maxElement_numOfDigits; i++){
             for (int element : sortedList)
-                buckets[(element / (int)Math.pow(10, i)) % 10].add(element);
+                buckets[(element / den) % 10].add(element);
 
             int idx = 0;
             for (Queue<Integer> bucket : buckets)
                 while (!bucket.isEmpty())   sortedList[idx++] = bucket.poll();
+            den *= 10;
         }
         for(int i = 0; i < sortedList.length; i++)
             sortedList[i] += this.ogMin;
