@@ -1,6 +1,6 @@
 package Heap;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Heap <T extends Comparable> {
     ArrayList<T> arr;

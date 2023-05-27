@@ -1,6 +1,6 @@
 package Sorting;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public interface Sort {
     /**

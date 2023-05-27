@@ -1,14 +1,12 @@
 package Sorting;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class RadixSort implements Sort{
 
     private int ogMin = 0;
     private int maxElement_numOfDigits = 0;
-    private int[] list;
+    private final int[] list;
     private Queue<Integer>[] buckets = new Queue[10];
 
     public RadixSort(int[] array){
@@ -31,8 +29,9 @@ public class RadixSort implements Sort{
         for (int i = 0; i < 10; i++)
             this.buckets[i] = new LinkedList<>();
 
-        while(list[maxIdx] > (int)Math.pow(10, maxElement_numOfDigits)) maxElement_numOfDigits++;
+        while(list[maxIdx] >= (int)Math.pow(10, maxElement_numOfDigits)) maxElement_numOfDigits++;
     }
+
     @Override
     public ArrayList<int[]> incremental_sort(){
         int[] sortedList;

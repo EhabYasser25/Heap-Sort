@@ -1,7 +1,6 @@
 package Sorting;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class MergeSort implements Sort{
     int[] originalList;

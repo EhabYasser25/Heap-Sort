@@ -1,7 +1,6 @@
 package CLI;
 
-import Sorting.Sort_Array;
-
+import Sorting.*;
 import java.util.*;
 
 public class CommandsInvoker {

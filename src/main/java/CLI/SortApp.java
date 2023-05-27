@@ -1,9 +1,7 @@
 package CLI;
 
 import Sorting.*;
-
 import java.util.*;
-
 import static CLI.SortAlgorithm.*;
 import static CLI.OutputFormat.*;
 
