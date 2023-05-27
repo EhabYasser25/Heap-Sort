@@ -7,7 +7,7 @@ public class RadixSort implements Sort{
     private int ogMin = 0;
     private int maxElement_numOfDigits = 0;
     private final int[] list;
-    private Queue<Integer>[] buckets = new Queue[10];
+    private int[][] buckets = new int[10][];
 
     public RadixSort(int[] array){
         this.list = array.clone();
@@ -27,7 +27,8 @@ public class RadixSort implements Sort{
         }
 
         for (int i = 0; i < 10; i++)
-            this.buckets[i] = new LinkedList<>();
+            this.buckets[i] = new int[array.length];
+
 
         while(list[maxIdx] >= (int)Math.pow(10, maxElement_numOfDigits)) maxElement_numOfDigits++;
     }
@@ -37,16 +38,26 @@ public class RadixSort implements Sort{
         int[] sortedList;
         ArrayList<int[]> intermediateLists = new ArrayList<>(maxElement_numOfDigits + 1);
         intermediateLists.add(this.list.clone());
-        for(int i = 0; i < maxElement_numOfDigits; i++){
+        int[] sizes = new int[]{0,0,0,0,0,0,0,0,0,0};
+        for(int i = 0, den = 1; i < maxElement_numOfDigits; i++, den *= 10){
             sortedList = new int[this.list.length];
-            for (int element : intermediateLists.get(intermediateLists.size() - 1))
-                buckets[(element / (int)Math.pow(10, i)) % 10].add(element);
+            for (int element : intermediateLists.get(intermediateLists.size() - 1)){
+                int idx = (element / den) % 10;
+                buckets[idx][sizes[idx]++] = element;
+            }
 
             int idx = 0;
-            for (Queue<Integer> bucket : buckets)
-                while (!bucket.isEmpty())   sortedList[idx++] = bucket.poll();
+            for (int b = 0; b < 10; b++){
+                for (int s = 0; s < sizes[b]; s++)
+                    sortedList[idx++] = buckets[b][s];
+                sizes[b] = 0;
+            }
             intermediateLists.add(sortedList);
         }
+
+        if(this.ogMin == 0)
+            return intermediateLists;
+
         intermediateLists.forEach((lst) -> {
             for (int j = 0; j < lst.length; j++)
                 lst[j] += this.ogMin;
@@ -57,26 +68,35 @@ public class RadixSort implements Sort{
     @Override
     public int[] final_sort() {
         int[] sortedList = this.list.clone();
-        int den = 1;
-        for(int i = 0; i < maxElement_numOfDigits; i++){
-            for (int element : sortedList)
-                buckets[(element / den) % 10].add(element);
+        int[] sizes = new int[]{0,0,0,0,0,0,0,0,0,0};
+        for(int i = 0, den = 1; i < maxElement_numOfDigits; i++, den *= 10){
+            for (int element : sortedList) {
+                int idx = (element / den) % 10;
+                buckets[idx][sizes[idx]++] = element;
+            }
 
             int idx = 0;
-            for (Queue<Integer> bucket : buckets)
-                while (!bucket.isEmpty())   sortedList[idx++] = bucket.poll();
-            den *= 10;
+            for (int b = 0; b < 10; b++){
+                for (int s = 0; s < sizes[b]; s++)
+                    sortedList[idx++] = buckets[b][s];
+                sizes[b] = 0;
+            }
         }
+
+        if(this.ogMin == 0)
+            return sortedList;
+
         for(int i = 0; i < sortedList.length; i++)
             sortedList[i] += this.ogMin;
+
         return sortedList;
     }
 
     public static void main(String[] args){
         Sort s = new RadixSort(new int[]{5,-9,2,4,5,-10,54,3});
         for(int[] lst : s.incremental_sort()){
-            for(int i : lst)
-                System.out.print(i + " ");
+            for (int elem : lst)
+                System.out.print(elem + " ");
             System.out.println();
         }
     }
