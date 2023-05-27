@@ -1,6 +1,6 @@
 package Sorting;
-import java.util.ArrayList;
-import java.util.Arrays;
+
+import java.util.*;
 
 public class BubbleSort implements Sort{
 
@@ -25,8 +25,9 @@ public class BubbleSort implements Sort{
                     changed = true;
                 }
             }
+            if(!changed) break;
             // Array after each bubble including final array
-            if (changed) steps.add(sortedList.clone());
+            steps.add(sortedList.clone());
         }
         return steps;
     }
@@ -34,9 +35,17 @@ public class BubbleSort implements Sort{
     @Override
     public int[] final_sort() {
         sortedList = originalList.clone();
-        for (int i = sortedList.length; i>=2 ; i--)
-            for (int j=1 ; j<i ; j++)
-                if (sortedList[j-1] >= sortedList[j]) swap(j-1,j);
+        for (int i = sortedList.length; i>=2 ; i--) {
+            boolean changed = false;
+            for (int j = 1; j < i; j++) {
+                if (sortedList[j - 1] >= sortedList[j]) {
+                    swap(j - 1, j);
+                    changed = true;
+                }
+            }
+            if(!changed)
+                break;
+        }
         return sortedList;
     }
 

@@ -1,12 +1,8 @@
 package Sorting;
 
-import CLI.OutputFormat;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
+import CLI.*;
+import java.io.*;
+import java.util.*;
 
 public class Sort_Array {
 
@@ -92,7 +88,7 @@ public class Sort_Array {
     }
 
     public static void main(String[] args) throws IOException {
-        Sort_Array sort = new Sort_Array("src/main/java/Tests/test.txt");
+        Sort_Array sort = new Sort_Array("src/main/java/Tests/Average_1M.txt");
         System.out.println("\nSorting without steps: ");
         System.out.println(Arrays.toString(sort.efficient_sort(OutputFormat.FINAL).get(0)));
         System.out.println("\nSorting with steps: ");

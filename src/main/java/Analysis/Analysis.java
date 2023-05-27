@@ -1,15 +1,9 @@
 package Analysis;
 
-import Service.FileManager;
-import Sorting.BubbleSort;
-import Sorting.MergeSort;
-import Sorting.RadixSort;
-import Sorting.Sort;
-import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import Sorting.*;
+import org.junit.jupiter.api.*;
+import java.io.*;
+import java.util.*;
 
 public class Analysis {
 

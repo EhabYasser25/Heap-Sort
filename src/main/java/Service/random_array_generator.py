@@ -61,4 +61,5 @@ def write_to_file(filename, numbers):
     f.write(f"{numbers[len(numbers) - 1]}")
 
 
-whole_generation()
+# whole_generation()
+write_to_file("../Tests/Worst_100K.txt", worst_case(100000, 100000))
