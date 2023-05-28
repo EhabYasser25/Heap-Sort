@@ -11,7 +11,7 @@ public class Sort_Array {
      */
     private final int[] elements;
 
-    private Sort simple, efficient, nonComparative;
+    private Sort simple, efficient, nonComparative, heapSort;
 
     /**
      * Takes an input file structured containing the list of elements
@@ -28,6 +28,7 @@ public class Sort_Array {
         simple = new BubbleSort(elements);
         efficient = new MergeSort(elements);
         nonComparative = new RadixSort(elements);
+        heapSort = new HeapSort(elements);
     }
 
     /**
@@ -83,6 +84,24 @@ public class Sort_Array {
         else{
             results = new ArrayList<>(1);
             results.add(this.nonComparative.final_sort());
+        }
+        return results;
+    }
+    /**
+     * Applies the sorting algorithm chosen from the O(n * lg(n)) sorting algorithms
+     * and either return the intermediate results or the final one.
+     * @param format Determines whether to return the intermediate arrays or
+     * the final sorted array.
+     * @return An array of lists containing the results from the sorting algorithm.
+     * The array would be of length one in case the OutputFormat chosen was FINAL
+     */
+    public ArrayList<int[]> heap_sort(OutputFormat format){
+        ArrayList<int[]> results;
+        if(format == OutputFormat.INTERMEDIATE)
+            results = this.heapSort.incremental_sort();
+        else{
+            results = new ArrayList<>(1);
+            results.add(this.heapSort.final_sort());
         }
         return results;
     }

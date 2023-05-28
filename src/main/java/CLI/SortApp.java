@@ -74,7 +74,7 @@ public class SortApp {
             case 1 -> algorithm = BUBBLE;
             case 2 -> algorithm = MERGE;
             case 3 -> algorithm = RADIX;
-//            case 4 -> algorithm = HEAP;
+            case 4 -> algorithm = HEAP;
         }
         return 0;
     }

@@ -53,12 +53,11 @@ class NonComparisonSort implements ICommand {
 
 class HeapSort implements ICommand {
     public long execute(Sort_Array sort, OutputFormat format) {
-//        long start = System.nanoTime();
-//        ArrayList<int[]> result = sort.heap_sort(format);
-//        long end = System.nanoTime();
-//        for(int[] arr : result)
-//            System.out.println(Arrays.toString(arr));
-//        return end - start;
-        return 0;
+        long start = System.nanoTime();
+        ArrayList<int[]> result = sort.heap_sort(format);
+        long end = System.nanoTime();
+        for(int[] arr : result)
+            System.out.println(Arrays.toString(arr));
+        return end - start;
     }
 }
