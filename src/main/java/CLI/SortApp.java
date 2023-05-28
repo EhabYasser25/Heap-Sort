@@ -1,6 +1,8 @@
 package CLI;
 
 import Sorting.*;
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.*;
 import static CLI.SortAlgorithm.*;
 import static CLI.OutputFormat.*;
@@ -97,6 +99,7 @@ public class SortApp {
     }
 
     public void printIntro() {
-        System.out.println("\nWelcome to our project!\n\n\n");
+        System.out.println("\n\n");
     }
+
 }

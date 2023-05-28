@@ -189,19 +189,19 @@ public class SortingTest {
         Assert.assertTrue(t2 - t1 > 100*(t3 - t2));
     }
 
-//    @Test
-//    public void testBubbleHeapBest() {
-//        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Best_10M.txt");
-//        Sort sort1 = new BubbleSort(arr);
-//        Sort sort2 = new HeapSort(arr);
-//        long t1 = System.currentTimeMillis();
-//        int[] res1 = sort1.final_sort();
-//        long t2 = System.currentTimeMillis();
-//        int[] res2 = sort2.final_sort();
-//        long t3 = System.currentTimeMillis();
-//        Assert.assertArrayEquals(res1, res2);
-//        Assert.assertTrue(t2 - t1 < t3 - t2);
-//    }
+    @Test
+    public void testBubbleHeapBest() {
+        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Best_10M.txt");
+        Sort sort1 = new BubbleSort(arr);
+        Sort sort2 = new HeapSort(arr);
+        long t1 = System.currentTimeMillis();
+        int[] res1 = sort1.final_sort();
+        long t2 = System.currentTimeMillis();
+        int[] res2 = sort2.final_sort();
+        long t3 = System.currentTimeMillis();
+        Assert.assertArrayEquals(res1, res2);
+        Assert.assertTrue(t2 - t1 < t3 - t2);
+    }
 
     @Test
     public void testMergeRadixAverage() {
@@ -231,37 +231,37 @@ public class SortingTest {
         Assert.assertTrue(t2 - t1 < t3 - t2);
     }
 
-//    @Test
-//    public void testMergeHeapAverage() {
-//        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Average_10M.txt");
-//        Sort sort1 = new MergeSort(arr);
-//        Sort sort2 = new HeapSort(arr);
-//        long t1 = System.currentTimeMillis();
-//        int[] res1 = sort1.final_sort();
-//        long t2 = System.currentTimeMillis();
-//        int[] res2 = sort2.final_sort();
-//        long t3 = System.currentTimeMillis();
-//        Assert.assertArrayEquals(res1, res2);
-//        Assert.assertTrue(t2 - t1 < t3 - t2);
-//    }
+    @Test
+    public void testMergeHeapAverage() {
+        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Average_10M.txt");
+        Sort sort1 = new MergeSort(arr);
+        Sort sort2 = new HeapSort(arr);
+        long t1 = System.currentTimeMillis();
+        int[] res1 = sort1.final_sort();
+        long t2 = System.currentTimeMillis();
+        int[] res2 = sort2.final_sort();
+        long t3 = System.currentTimeMillis();
+        Assert.assertArrayEquals(res1, res2);
+        Assert.assertTrue(t2 - t1 < t3 - t2);
+    }
 
-//    @Test
-//    public void testRadixheapAverage() {
-//        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Average_10M.txt");
-//        Sort sort1 = new RadixSort(arr);
-//        Sort sort2 = new HeapSort(arr);
-//        long t1 = System.currentTimeMillis();
-//        int[] res1 = sort1.final_sort();
-//        long t2 = System.currentTimeMillis();
-//        int[] res2 = sort2.final_sort();
-//        long t3 = System.currentTimeMillis();
-//        Assert.assertArrayEquals(res1, res2);
-//        Assert.assertTrue(Math.abs(t2 - t1 < t3 - t2);
-//    }
+    @Test
+    public void testRadixheapAverage() {
+        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Average_10M.txt");
+        Sort sort1 = new RadixSort(arr);
+        Sort sort2 = new HeapSort(arr);
+        long t1 = System.currentTimeMillis();
+        int[] res1 = sort1.final_sort();
+        long t2 = System.currentTimeMillis();
+        int[] res2 = sort2.final_sort();
+        long t3 = System.currentTimeMillis();
+        Assert.assertArrayEquals(res1, res2);
+        Assert.assertTrue(t2 - t1 < t3 - t2);
+    }
 
     @Test
     public void testBigBest() {
-        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Best_100K.txt");
+        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Best_10M.txt");
         Sort sort1 = new BubbleSort(arr);
         Sort sort2 = new MergeSort(arr);
         Sort sort3 = new RadixSort(arr);
