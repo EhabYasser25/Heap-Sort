@@ -3,9 +3,14 @@ import matplotlib.pyplot as plt
 
 
 def generate_random_numbers(min_value, max_value, number_of_numbers):
+    if number_of_numbers > (max_value - min_value + 1):
+        raise ValueError("Cannot generate distinct numbers. The range is not large enough.")
+
     random_numbers = []
-    for i in range(number_of_numbers):
-        random_numbers.append(random.randint(min_value, max_value))
+    while len(random_numbers) < number_of_numbers:
+        new_number = random.randint(min_value, max_value)
+        if new_number not in random_numbers:
+            random_numbers.append(new_number)
 
     return random_numbers
 
@@ -14,7 +19,7 @@ def best_case(min_value, number_of_numbers):
     numbers = []
     number = min_value
     for i in range(number_of_numbers):
-        numbers.append(number + 1)
+        numbers.append(number)
         number += 1
     return numbers
 
@@ -62,4 +67,18 @@ def write_to_file(filename, numbers):
 
 
 # whole_generation()
-write_to_file("../Tests/Worst_100K.txt", worst_case(100000, 100000))
+# write_to_file("../Tests/Files/Average_100K.txt", generate_random_numbers(-49999, 49999, 99999))
+import random
+
+def shuffle_numbers_in_file(filename):
+    with open(filename, 'r') as file:
+        numbers = file.readline().strip().split(',')
+
+    random.shuffle(numbers)
+
+    with open(filename, 'w') as file:
+        file.write(','.join(numbers))
+
+# Usage example
+filename = '../Tests/Files/Average_10M.txt'
+shuffle_numbers_in_file(filename)

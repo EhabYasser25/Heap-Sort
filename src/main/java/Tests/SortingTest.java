@@ -246,7 +246,7 @@ public class SortingTest {
     }
 
     @Test
-    public void testRadixheapAverage() {
+    public void testRadixHeapAverage() {
         int[] arr = FileManager.readFile("src/main/java/Tests/Files/Average_10M.txt");
         Sort sort1 = new RadixSort(arr);
         Sort sort2 = new HeapSort(arr);
