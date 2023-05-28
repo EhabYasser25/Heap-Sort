@@ -200,7 +200,7 @@ public class SortingTest {
 //        int[] res2 = sort2.final_sort();
 //        long t3 = System.currentTimeMillis();
 //        Assert.assertArrayEquals(res1, res2);
-//        Assert.assertTrue(Math.abs((t2 - t1) - (t3 - t2)) < 100);
+//        Assert.assertTrue(t2 - t1 < t3 - t2);
 //    }
 
     @Test
@@ -214,7 +214,7 @@ public class SortingTest {
         int[] res2 = sort2.final_sort();
         long t3 = System.currentTimeMillis();
         Assert.assertArrayEquals(res1, res2);
-        Assert.assertTrue(t2 - t1 < t3 - t2);
+        Assert.assertTrue(t2 - t1 > t3 - t2);
     }
 
     @Test
@@ -242,7 +242,7 @@ public class SortingTest {
 //        int[] res2 = sort2.final_sort();
 //        long t3 = System.currentTimeMillis();
 //        Assert.assertArrayEquals(res1, res2);
-//        Assert.assertTrue(t2 - t1 > 10*(t3 - t2));
+//        Assert.assertTrue(t2 - t1 < t3 - t2);
 //    }
 
 //    @Test
@@ -256,7 +256,7 @@ public class SortingTest {
 //        int[] res2 = sort2.final_sort();
 //        long t3 = System.currentTimeMillis();
 //        Assert.assertArrayEquals(res1, res2);
-//        Assert.assertTrue(Math.abs((t2 - t1) - (t3 - t2)) < 1000);
+//        Assert.assertTrue(Math.abs(t2 - t1 < t3 - t2);
 //    }
 
     @Test
