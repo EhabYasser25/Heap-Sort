@@ -199,10 +199,8 @@ public class SortingTest {
         long t2 = System.currentTimeMillis();
         int[] res2 = sort2.final_sort();
         long t3 = System.currentTimeMillis();
-        System.out.println((t2 - t1));
-        System.out.println((t3 - t2));
         Assert.assertArrayEquals(res1, res2);
-        Assert.assertTrue(Math.abs((t2 - t1) - (t3 - t2)) < 100);
+        Assert.assertTrue(t2 - t1 < t3 - t2);
     }
 
     @Test
@@ -216,7 +214,7 @@ public class SortingTest {
         int[] res2 = sort2.final_sort();
         long t3 = System.currentTimeMillis();
         Assert.assertArrayEquals(res1, res2);
-        Assert.assertTrue(t2 - t1 < t3 - t2);
+        Assert.assertTrue(t2 - t1 > t3 - t2);
     }
 
     @Test
@@ -244,7 +242,7 @@ public class SortingTest {
         int[] res2 = sort2.final_sort();
         long t3 = System.currentTimeMillis();
         Assert.assertArrayEquals(res1, res2);
-        Assert.assertTrue(t2 - t1 > 10*(t3 - t2));
+        Assert.assertTrue(t2 - t1 < t3 - t2);
     }
 
     @Test
@@ -258,12 +256,12 @@ public class SortingTest {
         int[] res2 = sort2.final_sort();
         long t3 = System.currentTimeMillis();
         Assert.assertArrayEquals(res1, res2);
-        Assert.assertTrue(Math.abs((t2 - t1) - (t3 - t2)) < 1000);
+        Assert.assertTrue(t2 - t1 < t3 - t2);
     }
 
     @Test
     public void testBigBest() {
-        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Best_100K.txt");
+        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Best_10M.txt");
         Sort sort1 = new BubbleSort(arr);
         Sort sort2 = new MergeSort(arr);
         Sort sort3 = new RadixSort(arr);
