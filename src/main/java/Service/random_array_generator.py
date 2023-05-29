@@ -66,10 +66,6 @@ def write_to_file(filename, numbers):
     f.write(f"{numbers[len(numbers) - 1]}")
 
 
-# whole_generation()
-# write_to_file("../Tests/Files/Average_100K.txt", generate_random_numbers(-49999, 49999, 99999))
-import random
-
 def shuffle_numbers_in_file(filename):
     with open(filename, 'r') as file:
         numbers = file.readline().strip().split(',')
@@ -79,6 +75,7 @@ def shuffle_numbers_in_file(filename):
     with open(filename, 'w') as file:
         file.write(','.join(numbers))
 
-# Usage example
-filename = '../Tests/Files/Average_10M.txt'
-shuffle_numbers_in_file(filename)
+
+# whole_generation()
+# write_to_file("../Tests/Files/Average_10M_BigDigits.txt", best_case(-1000000000, 10000001))
+shuffle_numbers_in_file('../Tests/Files/Average_10M_BigDigits.txt')

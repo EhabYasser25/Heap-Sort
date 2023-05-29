@@ -11,7 +11,7 @@ public class Sort_Array {
      */
     private final int[] elements;
 
-    private Sort simple, efficient, nonComparative, heapSort;
+    private final Sort simple, efficient, nonComparative, heapSort;
 
     /**
      * Takes an input file structured containing the list of elements
@@ -25,6 +25,14 @@ public class Sort_Array {
         elements = new int[numStrings.length];
         for(int i=0 ; i<elements.length ; i++)
             elements[i] = Integer.parseInt(numStrings[i]);
+        simple = new BubbleSort(elements);
+        efficient = new MergeSort(elements);
+        nonComparative = new RadixSort(elements);
+        heapSort = new HeapSort(elements);
+    }
+
+    public Sort_Array(int[] elements) {
+        this.elements = elements;
         simple = new BubbleSort(elements);
         efficient = new MergeSort(elements);
         nonComparative = new RadixSort(elements);

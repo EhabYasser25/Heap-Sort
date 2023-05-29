@@ -231,6 +231,21 @@ public class SortingTest {
         Assert.assertTrue(t2 - t1 < t3 - t2);
     }
 
+//    @Test
+//    public void testMergeRadixAverageBidDigits() {
+//        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Average_10K_BigDigits.txt");
+//        Sort sort1 = new MergeSort(arr);
+//        Sort sort2 = new RadixSort(arr);
+//        long t1 = System.nanoTime();
+//        int[] res1 = sort1.final_sort();
+//        long t2 = System.nanoTime();
+//        int[] res2 = sort2.final_sort();
+//        long t3 = System.nanoTime();
+//        System.out.println((t2 - t1) + " " + (t3 - t2));
+//        Assert.assertArrayEquals(res1, res2);
+//        Assert.assertTrue(t2 - t1 < t3 - t2);
+//    }
+
     @Test
     public void testMergeHeapAverage() {
         int[] arr = FileManager.readFile("src/main/java/Tests/Files/Average_10M.txt");

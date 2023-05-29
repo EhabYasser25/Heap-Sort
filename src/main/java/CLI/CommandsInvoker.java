@@ -14,50 +14,62 @@ public class CommandsInvoker {
     }
 }
 
-interface ICommand {
-    long execute(Sort_Array sort, OutputFormat format);
-}
-
 class SimpleSort implements ICommand {
+    ArrayList<int[]> result;
     public long execute(Sort_Array sort, OutputFormat format) {
         long start = System.nanoTime();
-        ArrayList<int[]> result = sort.simple_sort(format);
+        result = sort.simple_sort(format);
         long end = System.nanoTime();
         for(int[] arr : result)
             System.out.println(Arrays.toString(arr));
         return end - start;
+    }
+    public ArrayList<int[]> getResult() {
+        return result;
     }
 }
 
 class EfficientSort implements ICommand {
+    ArrayList<int[]> result;
     public long execute(Sort_Array sort, OutputFormat format) {
         long start = System.nanoTime();
-        ArrayList<int[]> result = sort.efficient_sort(format);
+        result = sort.efficient_sort(format);
         long end = System.nanoTime();
         for(int[] arr : result)
             System.out.println(Arrays.toString(arr));
         return end - start;
+    }
+    public ArrayList<int[]> getResult() {
+        return result;
     }
 }
 
 class NonComparisonSort implements ICommand {
+    ArrayList<int[]> result;
     public long execute(Sort_Array sort, OutputFormat format) {
         long start = System.nanoTime();
-        ArrayList<int[]> result = sort.nonComparison_sort(format);
+        result = sort.nonComparison_sort(format);
         long end = System.nanoTime();
         for(int[] arr : result)
             System.out.println(Arrays.toString(arr));
         return end - start;
     }
+    public ArrayList<int[]> getResult() {
+        return result;
+    }
 }
 
 class HeapSort implements ICommand {
+    ArrayList<int[]> result;
     public long execute(Sort_Array sort, OutputFormat format) {
         long start = System.nanoTime();
-        ArrayList<int[]> result = sort.heap_sort(format);
+        result = sort.heap_sort(format);
         long end = System.nanoTime();
         for(int[] arr : result)
             System.out.println(Arrays.toString(arr));
         return end - start;
+    }
+    public ArrayList<int[]> getResult() {
+        return result;
     }
 }
