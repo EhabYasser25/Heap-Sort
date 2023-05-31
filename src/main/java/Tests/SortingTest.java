@@ -121,7 +121,7 @@ public class SortingTest {
 
     @Test
     public void testBubbleMergeAverage() {
-        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Average_100K.txt");
+        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Worst_100K.txt");
         Sort sort1 = new BubbleSort(arr);
         Sort sort2 = new MergeSort(arr);
         long t1 = System.currentTimeMillis();
@@ -129,6 +129,7 @@ public class SortingTest {
         long t2 = System.currentTimeMillis();
         int[] res2 = sort2.final_sort();
         long t3 = System.currentTimeMillis();
+        System.out.println((t2-t1)+" "+(t3-t2));
         Assert.assertArrayEquals(res1, res2);
         Assert.assertTrue(t2 - t1 > 100*(t3 - t2));
     }
@@ -227,6 +228,7 @@ public class SortingTest {
         long t2 = System.currentTimeMillis();
         int[] res2 = sort2.final_sort();
         long t3 = System.currentTimeMillis();
+        System.out.println((t2 - t1) + " " + (t3 - t2));
         Assert.assertArrayEquals(res1, res2);
         Assert.assertTrue(t2 - t1 < t3 - t2);
     }
@@ -285,6 +287,8 @@ public class SortingTest {
         int[] res2 = sort2.final_sort();
         int[] res3 = sort3.final_sort();
         int[] res4 = sort4.final_sort();
+        for(int i = 1; i < res1.length; i++)
+            Assert.assertTrue(res1[i] >= res1[i-1]);
         Assert.assertArrayEquals(res1, res2);
         Assert.assertArrayEquals(res1, res3);
         Assert.assertArrayEquals(res1, res4);
@@ -301,6 +305,8 @@ public class SortingTest {
         int[] res2 = sort2.final_sort();
         int[] res3 = sort3.final_sort();
         int[] res4 = sort4.final_sort();
+        for(int i = 1; i < res1.length; i++)
+            Assert.assertTrue(res1[i] >= res1[i-1]);
         Assert.assertArrayEquals(res1, res2);
         Assert.assertArrayEquals(res1, res3);
         Assert.assertArrayEquals(res1, res4);
@@ -317,6 +323,8 @@ public class SortingTest {
         int[] res2 = sort2.final_sort();
         int[] res3 = sort3.final_sort();
         int[] res4 = sort4.final_sort();
+        for(int i = 1; i < res1.length; i++)
+            Assert.assertTrue(res1[i] >= res1[i-1]);
         Assert.assertArrayEquals(res1, res2);
         Assert.assertArrayEquals(res1, res3);
         Assert.assertArrayEquals(res1, res4);
