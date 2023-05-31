@@ -121,7 +121,7 @@ public class SortingTest {
 
     @Test
     public void testBubbleMergeAverage() {
-        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Worst_100K.txt");
+        int[] arr = FileManager.readFile("src/main/java/Tests/Files/Average_100K.txt");
         Sort sort1 = new BubbleSort(arr);
         Sort sort2 = new MergeSort(arr);
         long t1 = System.currentTimeMillis();
@@ -129,7 +129,6 @@ public class SortingTest {
         long t2 = System.currentTimeMillis();
         int[] res2 = sort2.final_sort();
         long t3 = System.currentTimeMillis();
-        System.out.println((t2-t1)+" "+(t3-t2));
         Assert.assertArrayEquals(res1, res2);
         Assert.assertTrue(t2 - t1 > 100*(t3 - t2));
     }
