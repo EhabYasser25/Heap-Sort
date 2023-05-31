@@ -76,6 +76,14 @@ def shuffle_numbers_in_file(filename):
         file.write(','.join(numbers))
 
 
-# whole_generation()
-# write_to_file("../Tests/Files/Average_10M_BigDigits.txt", best_case(-1000000000, 10000001))
-shuffle_numbers_in_file('../Tests/Files/Average_10M_BigDigits.txt')
+arr = worst_case(49999, 99999)
+# n = 101
+# i = 0
+# i += int(len(arr) / (n + 1))
+# while i < len(arr) - int(len(arr) / (n + 1)):
+#     temp = arr[i]
+#     arr[i] = arr[i+1]
+#     arr[i+1] = temp
+#     i += int(len(arr) / (n + 1))
+
+write_to_file("../Tests/Files/Worst_100K.txt", arr)
